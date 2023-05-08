@@ -17,7 +17,9 @@ jobs:
     - name: compile images to multiple platforms
       run: | 
        cd apps/odoo
-       docker buildx build --platform linux/arm64 -t websoft9dev/odoo --push . 
+       docker login -u xuyueting52 -p xyt103223
+       docker buildx create --name odoo --use 
+       docker buildx build --platform linux/arm64 -t xuyueting52/odoo --push . 
        
        
        
