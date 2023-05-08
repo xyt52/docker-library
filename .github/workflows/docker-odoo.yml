@@ -27,7 +27,7 @@ jobs:
        imageName: xuyueting52/odoo
        dockerUser: xuyueting52
        dockerPassword: xyt103223
-       dockerFile: docker/16.0/Dockerfile
+       dockerFile: apps/odoo/Dockerfile
        platform: linux/arm64
        tag: latest
        
