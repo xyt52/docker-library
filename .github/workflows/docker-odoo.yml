@@ -20,14 +20,17 @@ jobs:
        cd docker/16.0
        sed -i 's/wkhtmltopdf\/releases\/download\/0.12.5\/wkhtmltox_0.12.5-1.buster_amd64.deb/packaging\/releases\/download\/0.12.6-1\/wkhtmltox_0.12.6-1.buster_arm64.deb/g' Dockerfile
        sed -i 's/ea8277df4297afc507c61122f3c349af142f31e5/43d0db99ab0e6b5f60b465a49c764c50d6b31337/g' Dockerfile
-       docker login -u xuyueting52 -p xyt103223
        
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+    - name: Build and publish image
+      uses: ilteoood/docker_buildx@master
       with:
-       name: xuyueting52/odoo
-       version: latest
-       plantforms: linux/arm64
+       imageName: xuyueting52/odoo
+       dockerUser: xuyueting52
+       dockerPassword: xyt103223
+       dockerFile: docker/16.0/Dockerfile
+       platform: linux/arm64
+       tag: latest
+       
        
        
 
